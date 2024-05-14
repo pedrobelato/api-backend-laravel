@@ -11,7 +11,7 @@
 
 Neste projeto, foi desenvolvido no ambiente Laragon e utilizando banco de dados MySQL.
 
-### Para executar o projeto
+## Para executar o projeto
 
 * Faça o download do projeto e abra-o no VS Code.
 * Em seguida, com o laragon instalado no C:laragon em seu computador, navegue até a pasta "www" e cole o projeto baixado dentro dela.
@@ -24,4 +24,34 @@ Neste projeto, foi desenvolvido no ambiente Laragon e utilizando banco de dados 
 Dentro do projeto, contém o arquivo de exportação de toda a documentação das rotas feita pelo Postman.
 * Abra o Postman e clique no botão importar.
 * Navegue até o diretório do projeto onde o mesmo de localiza com o nome _API-Backend - CRUD.postman_collection_ e clique em abrir.
+
 Dentro do mesmo, há uma documentação exclusiva sobre as requisições.
+
+## Descrição do projeto
+
+### Tecnologias Utilizadas:
+* Laravel: Framework PHP utilizado para desenvolver a API RESTful.
+* Eloquent ORM: Utilizado para interagir com o banco de dados através de modelos.
+* Laravel Passport: Utilizado para implementar a autenticação baseada em tokens (OAuth2).
+* JSON Web Tokens (JWT): Utilizado para gerar tokens de acesso após a autenticação do usuário.
+* MySQL: Banco de dados relacional utilizado para armazenar dados dos produtos e informações de usuários.
+* Postman: Ferramenta colaborativa para testar APIs, permitindo criar, enviar e salvar solicitações HTTP de forma eficiente.
+
+### Funcionalidades Principais:
+
+* Criação de novos produtos com validação dos campos obrigatórios (nome, preço, status e quantidade em estoque).
+* Listagem de todos os produtos cadastrados, exibindo informações básicas como nome, descrição e preço.
+* Atualização de produtos existentes com validação dos campos antes da atualização.
+* Exclusão de produtos do banco de dados.
+
+### Autenticação de Usuários:
+
+* Autenticação de usuários através do endpoint /api/login, utilizando e-mail e senha.
+* Geração de token de acesso válido após autenticação bem-sucedida.
+* Restrição de acesso aos endpoints protegidos da API utilizando o token de acesso.
+
+### Resumo da Arquitetura:
+* Controllers: Responsáveis por receber as requisições HTTP, validar os dados e interagir com os modelos (Eloquent) para realizar operações no banco de dados.
+* Models: Representam os dados da aplicação e interagem com o banco de dados utilizando o Eloquent ORM.
+* Routes: Define os endpoints da API e associa cada endpoint a um método do controller.
+* Middlewares: Utilizados para aplicar camadas adicionais de segurança e lógica às rotas da API, como autenticação.

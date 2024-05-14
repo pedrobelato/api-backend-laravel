@@ -7,60 +7,51 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Projeto PHP utilizando Laravel na construção de uma API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Neste projeto, foi desenvolvido no ambiente Laragon e utilizando banco de dados MySQL.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Para executar o projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Faça o download do projeto e abra-o no VS Code.
+* Em seguida, com o laragon instalado no C:laragon em seu computador, navegue até a pasta "www" e cole o projeto baixado dentro dela.
+* Navegue pelo diretório do projeto em ".../database/seeders/" e abra o arquivo DatabaseSeeder.php, nele, irá conter duas factories para obter-se os dados de usuários e produtos gerados automaticamente.
+* Ainda no terminal do Laragon, execute o comando: _php artisan tinker_ e cole cada factory e tecle enter para gerar os dados.
+* Vá até o Laragon, inicie-o e, em seu terminal, execute o seguinte comando: _php artisan serve_ para executar o projeto.
 
-## Learning Laravel
+### Para testar as API's
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Dentro do projeto, contém o arquivo de exportação de toda a documentação das rotas feita pelo Postman.
+* Abra o Postman e clique no botão importar.
+* Navegue até o diretório do projeto onde o mesmo de localiza com o nome _API-Backend - CRUD.postman_collection_ e clique em abrir.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Dentro do mesmo, há uma documentação exclusiva sobre as requisições.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Descrição do projeto
 
-## Laravel Sponsors
+### Tecnologias Utilizadas:
+* Laravel: Framework PHP utilizado para desenvolver a API RESTful.
+* Eloquent ORM: Utilizado para interagir com o banco de dados através de modelos.
+* Laravel Passport: Utilizado para implementar a autenticação baseada em tokens (OAuth2).
+* JSON Web Tokens (JWT): Utilizado para gerar tokens de acesso após a autenticação do usuário.
+* MySQL: Banco de dados relacional utilizado para armazenar dados dos produtos e informações de usuários.
+* Postman: Ferramenta colaborativa para testar APIs, permitindo criar, enviar e salvar solicitações HTTP de forma eficiente.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Funcionalidades Principais:
 
-### Premium Partners
+* Criação de novos produtos com validação dos campos obrigatórios (nome, preço, status e quantidade em estoque).
+* Listagem de todos os produtos cadastrados, exibindo informações básicas como nome, descrição e preço.
+* Atualização de produtos existentes com validação dos campos antes da atualização.
+* Exclusão de produtos do banco de dados.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Autenticação de Usuários:
 
-## Contributing
+* Autenticação de usuários através do endpoint /api/login, utilizando e-mail e senha.
+* Geração de token de acesso válido após autenticação bem-sucedida.
+* Restrição de acesso aos endpoints protegidos da API utilizando o token de acesso.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Resumo da Arquitetura:
+* Controllers: Responsáveis por receber as requisições HTTP, validar os dados e interagir com os modelos (Eloquent) para realizar operações no banco de dados.
+* Models: Representam os dados da aplicação e interagem com o banco de dados utilizando o Eloquent ORM.
+* Routes: Define os endpoints da API e associa cada endpoint a um método do controller.
+* Middlewares: Utilizados para aplicar camadas adicionais de segurança e lógica às rotas da API, como autenticação.

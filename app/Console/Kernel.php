@@ -12,6 +12,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+        // Fazer com que exclua do banco de dados todos os tokens espirados nas últimas 24 horas diariamente.
+        $schedule->command('sanctum:prune-expired --hours=24')->daily();
         // $schedule->command('inspire')->hourly();
     }
 
